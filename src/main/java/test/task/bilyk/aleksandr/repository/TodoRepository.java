@@ -62,10 +62,7 @@ public class TodoRepository implements BackendlessTodoRepository {
         JSONArray list = response1.getBody().getArray();
         ArrayList<Todo> todoList = new ArrayList<>();
 
-        /* Unirest библиотека вызывает конфликт при сброке Maven,
-        заменил на более старые версии зависимостей
-        которые нужны Unirest в pom.xml,
-        нет поддержки лямбд, foeeach (Java 8).
+
         list.forEach(item -> {
             JSONObject obj = (JSONObject) item;
             String todoName = (String) obj.get("TodoName");
@@ -74,16 +71,7 @@ public class TodoRepository implements BackendlessTodoRepository {
             String objectId = (String) obj.get("objectId");
             todoList.add(new Todo(todoName, description, completed, objectId));
         } );
-        */
 
-        for (int i = 0; i < list.length(); i++){
-            JSONObject obj = (JSONObject) list.get(i);
-            String todoName = (String) obj.get("TodoName");
-            String description = (String) obj.get("Description");
-            boolean completed = Boolean.parseBoolean((String)obj.get("Completed"));
-            String objectId = (String) obj.get("objectId");
-            todoList.add(new Todo(todoName, description, completed, objectId));
-        }
         return todoList;
     }
 
