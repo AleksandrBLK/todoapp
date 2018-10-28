@@ -18,6 +18,6 @@ public interface BackendlessTodoService {
 
     Todo findByIdAndGet(String ObjectId) throws UnirestException;
 
-
+    void deletingIfCompleted (int minutes);
 
 }

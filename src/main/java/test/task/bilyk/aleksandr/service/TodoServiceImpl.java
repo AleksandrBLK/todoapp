@@ -55,5 +55,10 @@ public class TodoServiceImpl implements BackendlessTodoService {
         return repository.findByIdAndGet(ObjectId);
     }
 
-
+    @Override
+    public void deletingIfCompleted (int minutes) {
+        TimerTask timerTask = new TimerDeletingTask();
+        Timer timer = new Timer(true);
+        timer.scheduleAtFixedRate(timerTask,  minutes * 60000,minutes * 60000);
+    }
 }
