@@ -45,7 +45,6 @@ public class Todo {
     }
 
     public String getObjectId(){
-
         return objectId;
     }
 
