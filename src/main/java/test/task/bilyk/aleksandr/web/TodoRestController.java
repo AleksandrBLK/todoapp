@@ -43,7 +43,7 @@ public class TodoRestController {
 
     public Todo get(String ObjectId) throws UnirestException {
         Todo todo = service.findByIdAndGet(ObjectId);
-        log.info("get todo {}", todo);
+        log.info("get todo {}", todo, ObjectId);
         return todo;
     }
 
