@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Objects;
 
 public class TodoServlet extends HttpServlet {
     private TodoRestController todoController;
@@ -91,6 +92,6 @@ public class TodoServlet extends HttpServlet {
     }
 
     private String getId(HttpServletRequest request) {
-        return request.getParameter("objectId");
+        return Objects.requireNonNull(request.getParameter("objectId"));
     }
 }
